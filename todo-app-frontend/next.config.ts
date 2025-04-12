@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
 };
 module.exports = {
   experimental: {
-    serverActions: true,
+    serverActions: true
   },
 }
 
