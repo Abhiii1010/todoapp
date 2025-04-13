@@ -10,7 +10,8 @@ export default async function Home({
 }: {
   searchParams?: { page?: string; search?: string };
 }) {
-  const page = Number(searchParams?.page || '1');
+  const resolvedSearchParams = await searchParams;
+  const page = Number(resolvedSearchParams?.page || '1');
   const { todos, totalPages } = await getTodos(page);
 
   return (

@@ -12,11 +12,13 @@ export default async function TodoPage({
   params: { id: string };
   searchParams?: { page?: string; search?: string };
 }) {
-  const page = Number(searchParams?.page || '1');
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
+  const page = Number(resolvedSearchParams?.page || '1');
   // Fetch list for sidebar
   const { todos, totalPages } = await getTodos(page);
   // Fetch the selected todo
-  const todo = await getTodoById(params.id);
+  const todo = await getTodoById(resolvedParams.id);
 
   if (!todo) {
     return (
