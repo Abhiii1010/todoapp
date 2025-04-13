@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache';
 
 export async function createTodo() {
   try {
-    await fetch('http://localhost:3001/api/todos', {
+    await fetch('https://todoweb-service.onrender.com/api/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -22,7 +22,7 @@ export async function createTodo() {
 export async function deleteTodo(formData: FormData) {
   const id = formData.get('id') as string;
   try {
-    await fetch(`http://localhost:3001/api/todos/${id}`, {
+    await fetch(`https://todoweb-service.onrender.com/api/todos/${id}`, {
       method: 'DELETE',
     });
     revalidatePath('/');
@@ -37,7 +37,7 @@ export async function updateTodo(formData: FormData) {
   const description = formData.get('description') as string;
 
   try {
-    await fetch(`http://localhost:3001/api/todos/${id}`, {
+    await fetch(`https://todoweb-service.onrender.com/api/todos/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, description }),
