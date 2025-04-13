@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default async function Home({
   searchParams,
 }: {
-  searchParams?: { page?: string; search?: string };
+  searchParams?: Promise<{ page?: string; search?: string }>;
 }) {
   const resolvedSearchParams = await searchParams;
   const page = Number(resolvedSearchParams?.page || '1');

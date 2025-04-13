@@ -9,8 +9,8 @@ export default async function TodoPage({
   params,
   searchParams,
 }: {
-  params: { id: string };
-  searchParams?: { page?: string; search?: string };
+  params: Promise<{ id: string }>;
+  searchParams?: Promise<{ page?: string; search?: string }>;
 }) {
   const resolvedParams = await params;
   const resolvedSearchParams = await searchParams;
