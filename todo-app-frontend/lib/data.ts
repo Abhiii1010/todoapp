@@ -1,7 +1,7 @@
 // lib/data.ts
 import { Todo } from './types';
 
-const API_URL = 'http://localhost:3001/api/todos';
+const API_URL = 'https://todoweb-service.onrender.com/api/todos';
 
 export async function getTodos(page = 1): Promise<{
   todos: Todo[];
