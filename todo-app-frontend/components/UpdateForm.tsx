@@ -10,11 +10,12 @@ export default function UpdateForm({ todo }: { todo: Todo }) {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      updateTodo({
-        id: todo._id,
-        title,
-        description,
-      });
+      const formData = new FormData();
+      formData.append('id', todo._id);
+      formData.append('title', title);
+      formData.append('description', description);
+
+      updateTodo(formData);
     }, 500); // debounce
 
     return () => clearTimeout(timeout);

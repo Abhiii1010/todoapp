@@ -1,13 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Add other config options here if needed
+  reactStrictMode: true,
 };
-module.exports = {
-  experimental: {
-    serverActions: true
-  },
-}
-
 
 export default nextConfig;
